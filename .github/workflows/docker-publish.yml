@@ -31,6 +31,10 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
+      - name: Format version
+        id: version
+        run: echo "version=${github.ref_name#v}" >> $GITHUB_OUTPUT
+
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
@@ -39,4 +43,4 @@ jobs:
           push: true
           tags: |
             ${{ env.REGISTRY }}/${{ env.IMAGE }}:latest
-            ${{ env.REGISTRY }}/${{ env.IMAGE }}:${{ github.ref_name }}
+            ${{ env.REGISTRY }}/${{ env.IMAGE }}:${{ steps.version.outputs.version }}
