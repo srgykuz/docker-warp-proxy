@@ -7,6 +7,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE: ${{ github.repository_owner }}/warp-proxy
+  VERSION: ${{ startsWith(github.ref_name, "v") && github.ref_name[1:] || github.ref_name }}
 
 jobs:
   build-and-push:
@@ -39,4 +40,4 @@ jobs:
           push: true
           tags: |
             ${{ env.REGISTRY }}/${{ env.IMAGE }}:latest
-            ${{ env.REGISTRY }}/${{ env.IMAGE }}:${{ github.ref_name }}
+            ${{ env.REGISTRY }}/${{ env.IMAGE }}:${{ env.VERSION }}
