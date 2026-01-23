@@ -1,6 +1,6 @@
 services:
   warp:
-    image: srgykuz/warp-proxy:latest
+    image: ghcr.io/srgykuz/warp-proxy:latest
     ports:
       - 1080:1080
     environment:

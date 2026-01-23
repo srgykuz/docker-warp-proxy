@@ -15,7 +15,7 @@ The proxy supports SOCKS5 and HTTP.
 Run:
 
 ```bash
-docker run -d -p 1080:1080 srgykuz/warp-proxy:latest
+docker run -d -p 1080:1080 ghcr.io/srgykuz/warp-proxy:latest
 ```
 
 Verify:
