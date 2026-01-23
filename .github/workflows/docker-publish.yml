@@ -7,7 +7,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE: ${{ github.repository_owner }}/warp-proxy
-  VERSION: ${{ startsWith(github.ref_name, 'v') && github.ref_name[1:] || github.ref_name }}
+  VERSION: ${{ startsWith(github.ref_name, "v") && github.ref_name[1:] || github.ref_name }}
 
 jobs:
   build-and-push:
