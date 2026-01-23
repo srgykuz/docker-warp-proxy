@@ -1,0 +1,25 @@
+services:
+  warp:
+    image: srgykuz/warp-proxy:latest
+    ports:
+      - 1080:1080
+    environment:
+      - PROXY_PORT=1080
+      - VERBOSE=0
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: 3
+    # Uncomment if you want persistent registration
+    # volumes:
+    #   - ./warp:/var/lib/cloudflare-warp
+    # Uncomment if you want health check by making HTTP queries
+    # healthcheck:
+    #   test: ["CMD-SHELL", "healthcheck.sh"]
+    #   interval: 1m
+    #   timeout: 15s
+    #   retries: 1
+    #   start_period: 30s
+    #   start_interval: 5s
