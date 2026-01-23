@@ -33,7 +33,7 @@ jobs:
 
       - name: Format version
         id: version
-        run: echo "version=${github.ref_name#v}" >> $GITHUB_OUTPUT
+        run: echo "version=${GITHUB_REF_NAME#v}" >> $GITHUB_OUTPUT
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
