@@ -16,6 +16,13 @@ warp_is_connected() {
     fi
 }
 
+clear_logs() {
+    while true; do
+        sleep 5m
+        find /var/lib/cloudflare-warp -type f -name "cfwarp*.txt*" -exec truncate -s 0 {} \;
+    done
+}
+
 daemon_pid=""
 socat_pid=""
 
@@ -97,4 +104,7 @@ socat_pid=$!
 
 echo "Ready at port $PROXY_PORT"
 
-wait $daemon_pid $socat_pid
+clear_logs &
+logs_pid=$!
+
+wait $daemon_pid $socat_pid $logs_pid
