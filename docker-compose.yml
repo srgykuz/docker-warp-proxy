@@ -12,10 +12,14 @@ services:
       options:
         max-size: 10m
         max-file: 3
-    # Uncomment if you want persistent registration
+
+    # By default anonymous registration is lost after container removal.
+    # Uncomment if you want persistent registration.
     # volumes:
     #   - ./warp:/var/lib/cloudflare-warp
-    # Uncomment if you want health check by making HTTP queries
+
+    # Container can monitor proxy reachability by making real HTTP queries.
+    # Uncomment if you want this health check.
     # healthcheck:
     #   test: ["CMD-SHELL", "healthcheck.sh"]
     #   interval: 1m
@@ -23,8 +27,9 @@ services:
     #   retries: 1
     #   start_period: 30s
     #   start_interval: 5s
+
     # Over time WARP tend to consume memory.
-    # Uncomment if you want automatic restart of container upon reaching memory threshold.
+    # Uncomment if you want automatic container restart upon reaching memory threshold.
     # deploy:
     #   resources:
     #     limits:
