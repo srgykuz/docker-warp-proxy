@@ -12,7 +12,8 @@ RUN curl -fsSL https://pkg.cloudflareclient.com/pubkey.gpg | \
     apt-get install -y cloudflare-warp
 
 RUN apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+    rm -rf /var/lib/apt/lists/* \
+    rm /usr/bin/warp-diag /usr/bin/warp-dex /usr/bin/warp-taskbar
 
 COPY --chmod=755 entrypoint.sh healthcheck.sh /usr/local/bin/
 
