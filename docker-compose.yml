@@ -23,3 +23,9 @@ services:
     #   retries: 1
     #   start_period: 30s
     #   start_interval: 5s
+    # Over time WARP tend to consume memory.
+    # Uncomment if you want automatic restart of container upon reaching memory threshold.
+    # deploy:
+    #   resources:
+    #     limits:
+    #       memory: 100M
