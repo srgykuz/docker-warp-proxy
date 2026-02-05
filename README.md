@@ -1,6 +1,6 @@
 # docker-warp-proxy
 
-Run Cloudflare Warp in proxy mode as a Docker container.
+Run Cloudflare WARP in proxy mode as a Docker container.
 
 ## Usage
 
