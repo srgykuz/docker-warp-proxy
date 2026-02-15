@@ -23,6 +23,11 @@ clear_logs() {
     done
 }
 
+restart_warp() {
+    sleep 1d
+    kill 1
+}
+
 daemon_pid=""
 socat_pid=""
 
@@ -107,4 +112,11 @@ echo "Ready at port $PROXY_PORT"
 clear_logs &
 logs_pid=$!
 
-wait $daemon_pid $socat_pid $logs_pid
+restart_pid=""
+
+if [[ -n "$RESTART" && "$RESTART" != "0" ]]; then
+    restart_warp &
+    restart_pid=$!
+fi
+
+wait $daemon_pid $socat_pid $logs_pid $restart_pid

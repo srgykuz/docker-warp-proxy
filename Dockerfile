@@ -19,7 +19,8 @@ COPY --chmod=755 entrypoint.sh healthcheck.sh /usr/local/bin/
 
 ENV PROXY_PORT=1080 \
     WARP_PORT=40000 \
-    VERBOSE=0
+    VERBOSE=0 \
+    RESTART=0
 
 EXPOSE 1080/tcp
 

@@ -6,6 +6,10 @@ services:
     environment:
       - PROXY_PORT=1080
       - VERBOSE=0
+
+      # Over time WARP tend to consume memory.
+      # Set 1 if you want automatic container restart to free up memory.
+      - RESTART=0
     restart: unless-stopped
     logging:
       driver: json-file
@@ -27,10 +31,3 @@ services:
     #   retries: 1
     #   start_period: 30s
     #   start_interval: 5s
-
-    # Over time WARP tend to consume memory.
-    # Uncomment if you want automatic container restart upon reaching memory threshold.
-    # deploy:
-    #   resources:
-    #     limits:
-    #       memory: 100M
