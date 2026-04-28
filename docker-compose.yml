@@ -24,10 +24,11 @@ services:
 
     # Container can monitor proxy reachability by making real HTTP queries.
     # Uncomment if you want this health check.
+    # Set RESTART=1 if you want automatic container restart when container becomes unhealthy.
     # healthcheck:
     #   test: ["CMD-SHELL", "healthcheck.sh"]
     #   interval: 1m
     #   timeout: 15s
     #   retries: 1
-    #   start_period: 30s
-    #   start_interval: 5s
+    #   start_period: 0s
+    #   start_interval: 0s
