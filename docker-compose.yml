@@ -22,7 +22,7 @@ services:
     # volumes:
     #   - ./warp:/var/lib/cloudflare-warp
 
-    # Container can monitor proxy reachability by making real HTTP queries.
+    # Container can monitor proxy reachability by making HTTP query through the proxy.
     # Uncomment if you want this health check.
     # Set RESTART=1 if you want automatic container restart when container becomes unhealthy.
     # healthcheck:
