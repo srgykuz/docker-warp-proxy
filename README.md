@@ -21,7 +21,7 @@ docker run -d -p 1080:1080 ghcr.io/srgykuz/warp-proxy:latest
 Verify:
 
 ```bash
-curl -x socks5h://127.0.0.1:1080 https://www.cloudflare.com/cdn-cgi/trace/
+curl -x socks5h://127.0.0.1:1080 https://www.cloudflare.com/cdn-cgi/trace
 ```
 
 In output look for `warp=on`.
