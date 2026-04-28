@@ -27,7 +27,7 @@ services:
     # Set RESTART=1 if you want automatic container restart when container becomes unhealthy.
     # healthcheck:
     #   test: ["CMD-SHELL", "healthcheck.sh"]
-    #   interval: 1m
+    #   interval: 2m
     #   timeout: 15s
     #   retries: 1
     #   start_period: 0s
